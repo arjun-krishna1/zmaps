@@ -1,0 +1,46 @@
+# ZMaps
+- Zombie Apocalypse
+- Resource and threat tracking dashboard
+- Models
+  - Location of interest: 
+    - geographic location: geographic location
+    - Type of landmark: zombie horde, resource stash, outpost
+  - Zombie horde:
+    - Number of zombies
+    - Average stage of decomposition
+  - Resource stash:
+    - Litres of water : int
+    - Litres of gasoline : int
+    - Weapons : (string, int)
+    - Food : (string, int)
+    - Technology : string
+  - Outpost:
+    - Type: Military, Civilian
+    - Population size: int
+    - Resources : Resource stash
+    - Accepting survivors: Boolean
+    - Has Internet Access: Boolean
+- Backend API:
+  - Routes
+    - GET '/locations'
+      - return all locations of interest
+    - POST '/locations'
+      - Create a new location
+    - GET '/locations/<int:pk>'
+      - return data of that location
+    - PATCH '/locations/<int:pk>'
+      - Update location information
+    - DELETE '/locations/<int:pk>'
+      - Delete location
+    - GET '/locations/zombie'
+      - Return all zombie hordes
+    - GET '/locations/zombie/closest'
+      - Return the closest zombie horde
+    - GET '/locations/resource'
+      - Return JSON of all abandoned resource stash
+    - GET '/locations/closest'
+      - Return JSON of the closest outpost that is accepting survivors
+    - GET '/locations/closest/route'
+      - Return route to closest outpost
+      - Avoid all zombie hordes by 100KM
+  
