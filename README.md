@@ -1,6 +1,9 @@
-# ZMaps
-- Zombie Apocalypse
-- Resource and threat tracking dashboard
+
+<div align=center>
+<h1> ZMaps </h1>
+Resource and threat tracking dashboard for the zombie apocalypse
+</div>
+
 - Models
   - Location of interest: 
     - geographic location: geographic location
@@ -20,6 +23,20 @@
     - Resources : Resource stash
     - Accepting survivors: Boolean
     - Has Internet Access: Boolean
+
+- Frontend:
+  - Map that displays all locations of interest
+    - Legend
+      - Zombie horde is red dot
+      - Resource stash is purple dot
+      - Military outpost is green dot
+      - Civilian outpost is blue dot
+    - Clicking on map creates a location of interest
+      - Can fill out more information about it
+    - Can request directions
+  - Global information
+  - World Anti-Zombie Federation
+  - Inspired by World War Z
 - Backend API:
   - Routes
     - GET '/locations'
@@ -43,4 +60,5 @@
     - GET '/locations/closest/route'
       - Return route to closest outpost
       - Avoid all zombie hordes by 100KM
+
   
