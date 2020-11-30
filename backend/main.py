@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+
+# from models.py
 from models import ( 
     LocationOfInterest, TypeOfLandmark
 )

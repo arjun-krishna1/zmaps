@@ -1,4 +1,3 @@
-
 <div align=center>
 <h1> ZMaps </h1>
 Resource and threat tracking dashboard for the zombie apocalypse
