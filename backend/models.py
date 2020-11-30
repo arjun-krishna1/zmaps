@@ -1,19 +1,12 @@
-from typing import List
+from typing import List, Union
 from pydantic import BaseModel, Field
 
 from uuid import UUID, uuid4
 
 # from enums.py
-from enums import ( 
-  TypeOfLandmark, StageOfDecomposition, TypeOfOutpost )
+from enums import (
+    TypeOfLandmark, StageOfDecomposition, TypeOfOutpost)
 
-# best practice, use path variable when specifying a resource
-# use query parameters if you want to sort or filter items  
-class LocationOfInterest(BaseModel):
-    '''store a location of interest'''
-    uid: UUID = Field(default_factory=uuid4)
-    location: str
-    type_of_landmark: TypeOfLandmark
 
 class ZombieHorde(BaseModel):
     '''store information about a zombie horde'''
@@ -45,6 +38,7 @@ class ResourceStash(BaseModel):
     food_collections: List[FoodCollection]
     technologies: List[str]
 
+
 class Outpost(BaseModel):
     '''store information about an outpost'''
     uid: UUID = Field(default_factory=uuid4)
@@ -53,3 +47,12 @@ class Outpost(BaseModel):
     resources: ResourceStash
     accepting_survivors: bool
     has_internet: bool
+
+
+class LocationOfInterest(BaseModel):
+    '''store a location of interest'''
+    uid: UUID = Field(default_factory=uuid4)
+    location: str
+    type_of_landmark: TypeOfLandmark
+    # location_info can be ZombieHorde or Outpost
+    location_info: Union[ZombieHorde, Outpost]
