@@ -23,6 +23,22 @@ Resource and threat tracking dashboard for the zombie apocalypse
     - Accepting survivors: Boolean
     - Has Internet Access: Boolean
 
+- Operations:
+  - POST Location of interest
+    - POST Zombie Horde
+    - POST Outpost
+      - POST Resource Stash
+
+  - GET all locations of interest
+  - GET all Zombie Hordes
+  - GET all Outposts
+  - GET outpost closest to me (eventually) 
+
+  - PATCH number of zombies in zombie horde
+  - PATCH average stage of decomposition in zombie horde
+  - PATCH each resource in a resource stash
+  - PATCH population of Outpost and its resources
+
 - Frontend:
   - Map that displays all locations of interest
     - Legend
