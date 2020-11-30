@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from models import ( 
-    LocationOfInterest, TypeOfLandmarkEnum
+    LocationOfInterest, TypeOfLandmark
 )
 
 home = LocationOfInterest(
     location='Simcoe',
-    type_of_landmark=TypeOfLandmarkEnum.zombie_horde
+    type_of_landmark=TypeOfLandmark.zombie_horde
     )
 app = FastAPI()
 
