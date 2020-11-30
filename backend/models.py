@@ -7,6 +7,8 @@ from uuid import UUID, uuid4
 from enums import ( 
   TypeOfLandmark, StageOfDecomposition, TypeOfOutpost )
 
+# best practice, use path variable when specifying a resource
+# use query parameters if you want to sort or filter items  
 class LocationOfInterest(BaseModel):
     '''store a location of interest'''
     uid: UUID = Field(default_factory=uuid4)
