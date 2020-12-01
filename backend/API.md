@@ -7,7 +7,7 @@
       - return data of that location
     - [D]PATCH '/locations/<int:pk>'
       - Update location information
-    - DELETE '/locations/<int:pk>'
+    - [D]DELETE '/locations/<int:pk>'
       - Delete location
     - GET '/locations/zombie'
       - Return all zombie hordes

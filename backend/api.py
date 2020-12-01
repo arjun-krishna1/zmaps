@@ -101,12 +101,28 @@ async def patch_location(
     location: str,
     location_of_interest: LocationOfInterest
 ):
-    '''patch instance with the coordinates passed in and the information passed in'''
+    '''patch instance with the coordinates passed in 
+    and the information passed in'''
     update_item_encoded = jsonable_encoder(location_of_interest)
 
     for i in range(len(locations_of_interest)):
         if locations_of_interest[i].location == location:
             locations_of_interest.pop(i)
+            break
 
     locations_of_interest.append(update_item_encoded)
     return update_item_encoded
+
+@app.delete('/locations/{location}')
+async def delete_location(
+    location: str
+):
+    '''delete instance with the location the same as 
+    that is passed in'''
+    location_of_interest = None
+    for i in range(len(locations_of_interest)):
+        if locations_of_interest[i].location == location:
+            location_of_interest = locations_of_interest.pop(i)
+            break
+
+    return location_of_interest
