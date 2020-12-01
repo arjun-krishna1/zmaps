@@ -39,7 +39,7 @@ async def return_locations_of_interest():
     return {'locations_of_interest': locations_of_interest}
 
 
-@app.post('/locations/{location}/{type_of_landmark}/')
+@app.post('/locations/{location}/{type_of_landmark}')
 async def create_location_of_interest(
     location: str, type_of_landmark: TypeOfLandmark,
     location_info: Union[ZombieHorde, Outpost],
@@ -57,3 +57,15 @@ async def create_location_of_interest(
 
     # return LocationOfInterest instance
     return new_loc
+
+@app.get('/locations/{location}')
+async def get_location(
+    location: str
+):
+    '''get location of instance based on coordinates'''
+    this_location = None
+    for i in locations_of_interest:
+        if i.location == location:
+            this_location = i
+
+    return this_location

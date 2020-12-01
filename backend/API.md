@@ -1,9 +1,9 @@
 - Routes
-    - GET '/locations'
+    - [D]GET '/locations'
       - return all locations of interest
-    - POST '/locations'
+    - [D]POST '/locations'
       - Create a new location
-    - GET '/locations/<int:pk>'
+    - [D]GET '/locations/<location>'
       - return data of that location
     - PATCH '/locations/<int:pk>'
       - Update location information
