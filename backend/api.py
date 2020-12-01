@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from typing import List, Union
 
+from fastapi.encoders import jsonable_encoder
+
 # from models.py
 from models import (
     LocationOfInterest, ZombieHorde, WeaponCollection, FoodCollection, ResourceStash, Outpost
@@ -62,10 +64,49 @@ async def create_location_of_interest(
 async def get_location(
     location: str
 ):
-    '''get location of instance based on coordinates'''
+    '''get instance with the coordinates passed in'''
     this_location = None
     for i in locations_of_interest:
         if i.location == location:
             this_location = i
+            break
 
     return this_location
+
+'''
+*args -> is used to pass a variable number of arguments
+            to a function
+
+**kwargs ->
+
+exclude_unset=True, is for partial updates
+generate a dict with only the data was set, omitting default values
+
+'''
+def pop_location(
+    location: str
+    ):
+
+    this_location = None
+    for i in range(len(locations_of_interest)):
+        location_i = locations_of_interest[i]
+        if location_i.location == location:
+            this_location = locations_of_interest.pop(i)
+            break
+    
+    return this_location
+
+@app.put('/locations/{location}', response_model=LocationOfInterest)
+async def patch_location(
+    location: str,
+    location_of_interest: LocationOfInterest
+):
+    '''patch instance with the coordinates passed in and the information passed in'''
+    update_item_encoded = jsonable_encoder(location_of_interest)
+
+    for i in range(len(locations_of_interest)):
+        if locations_of_interest[i].location == location:
+            locations_of_interest.pop(i)
+
+    locations_of_interest.append(update_item_encoded)
+    return update_item_encoded

@@ -5,7 +5,7 @@
       - Create a new location
     - [D]GET '/locations/<location>'
       - return data of that location
-    - PATCH '/locations/<int:pk>'
+    - [D]PATCH '/locations/<int:pk>'
       - Update location information
     - DELETE '/locations/<int:pk>'
       - Delete location
