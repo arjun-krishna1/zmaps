@@ -1,0 +1,1 @@
+{"id":"24d84817-3be9-4c13-90fd-0225f6268871","space":1503,"runtime":"python3.7","name":"backend","path":"vwtwho","project":"b0hay9j1","account":"848309356320","region":"us-west-1","deps":["click==7.1.2","fastapi==0.62.0","h11==0.11.0","pydantic==1.7.2","uvicorn==0.12.3"],"envs":null,"public":true,"log_level":"debug","cron":"","reload_deps":false}

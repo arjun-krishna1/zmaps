@@ -6,8 +6,12 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-uvicorn = "*"
-fastapi = "*"
+click = "==7.1.2"
+fastapi = "==0.62.0"
+h11 = "==0.11.0"
+pydantic = "==1.7.2"
+uvicorn = "==0.12.3"
+deta = "*"
 
 [requires]
 python_version = "3.8"
